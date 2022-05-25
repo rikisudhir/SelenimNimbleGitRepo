@@ -1,0 +1,8 @@
+<suite name="allSuites">
+  <suite-files>
+    <suite-file path="./testng.xml" />
+    <suite-file path="./testngparallel.xml" />
+    <suite-file path="./testngparameter.xml" />
+    ...
+  </suite-files>
+</suite>
