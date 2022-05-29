@@ -14,11 +14,13 @@ public class Propertiesdemo {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		
-		FileInputStream file = new FileInputStream("D:\\GitHubRepo\\SelenimNimbleGitRepo\\Test\\src\\com\\properties\\test.properties");
+		FileInputStream stream ;
+		
+		stream= new FileInputStream("D:\\GitHubRepo\\SelenimNimbleGitRepo\\Test\\src\\com\\properties\\test.properties");
 		
 		Properties config= new  Properties();
 		
-		config.load(file);
+		config.load(stream);
 		
 		
 		String url = config.getProperty("url");
