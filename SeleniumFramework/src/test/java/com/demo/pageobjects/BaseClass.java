@@ -44,7 +44,7 @@ public class BaseClass {
 		System.out.println(testDataFilePath);
 		testDataConfig = new ConfigParser(testDataFilePath);
 		
-		System.out.println(testDataConfig.getPropertyvalue("test"));
+		System.out.println(testDataConfig.getPropertyvalue("postloginUrl"));
 		
 		
 		if(browser.equals("chrome")){
@@ -58,9 +58,7 @@ public class BaseClass {
 			driver = new ChromeDriver();
 			
 			System.out.println("test1");
-			
-			
-			
+				
 			
 		}else if(browser.equals("ff")) {
 			
@@ -68,6 +66,9 @@ public class BaseClass {
 			
 			driver=new FirefoxDriver();
 		}
+		
+		
+		
 		
 		
 	}

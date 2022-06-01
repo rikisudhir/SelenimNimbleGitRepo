@@ -4,6 +4,10 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
+import java.awt.AWTException;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -22,12 +26,14 @@ public class LoginTest extends BaseClass{
 		
 		driver.navigate().to(objConfig.getPropertyvalue("baseUrl"));
 		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
 		driver.manage().window().maximize();
 		
 	}
 	
 	
-	@Test
+	@Test(priority=1)
 	
 	public void validlogintest() {
 		
@@ -74,8 +80,8 @@ public class LoginTest extends BaseClass{
 	}
 	
 	
-	@Test
-	public void validatelogout() throws InterruptedException {
+	@Test(priority=2)
+	public void validatelogout() throws InterruptedException, AWTException {
 		
 		String expectedalerttext= testDataConfig.getPropertyvalue("logoutAertText");
 		
@@ -89,6 +95,7 @@ public class LoginTest extends BaseClass{
 			assertTrue(true);
 			
 		}
+	
 				
 		
 		

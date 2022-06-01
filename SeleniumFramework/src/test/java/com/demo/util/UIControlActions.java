@@ -1,5 +1,9 @@
 package com.demo.util;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 
@@ -33,5 +37,15 @@ public class UIControlActions {
 		Alert alert= driver.switchTo().alert();
 		alert.accept();	
 		
+	}
+	
+	
+	public void scrolldown() throws AWTException {
+		
+		 Robot robot = new Robot();
+		   
+		   robot.keyPress(KeyEvent.VK_CONTROL);
+			 
+		   robot.keyPress(KeyEvent.VK_END);
 	}
 }

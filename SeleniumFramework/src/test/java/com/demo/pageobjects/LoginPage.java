@@ -1,7 +1,15 @@
 package com.demo.pageobjects;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -12,9 +20,11 @@ public class LoginPage {
 	WebDriver driver;
 	UIControlActions uiobj;
 	
+	
 	public LoginPage(WebDriver driver) {
 		
 		this.driver=driver;
+	
 		
 		uiobj = new UIControlActions(driver);
 		
@@ -59,7 +69,7 @@ public class LoginPage {
 		
 		loginBtn.click();
 		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		
 		}catch(Exception e) {
 			
@@ -69,7 +79,7 @@ public class LoginPage {
 	}
 	
 	
-public String validateflashMessage() {
+   public String validateflashMessage() {
 		
 		
 		String actualflashMsg= FlashMsg.getText();
@@ -79,8 +89,22 @@ public String validateflashMessage() {
 	}
 	
 
-   public String  logout() throws InterruptedException {
+   public String  logout() throws InterruptedException, AWTException {
 	   
+	   
+	   //Actions actions = new Actions(driver);
+	// Page Down
+	//actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+	   
+	   uiobj.scrolldown();
+	   
+	   Thread.sleep(2000);
+	
+	   System.out.println("test545");
+	   
+	   
+	   Thread.sleep(2000);
+	  
 	   LogoutLink.click();
 	   
 	   Thread.sleep(2000);
