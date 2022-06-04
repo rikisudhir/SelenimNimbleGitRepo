@@ -4,6 +4,7 @@ import static org.testng.Assert.assertTrue;
 
 import java.time.Duration;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -68,6 +69,43 @@ public class CustomerTest extends BaseClass {
 	   
 	   
    }
+   
+   
+   @Test(priority=3)
+   public void validateCreationofNewcustomerPage() throws InterruptedException {
+	   
+	   
+	    String customername=testDataConfig.getPropertyvalue("customerName");
+		String dob=testDataConfig.getPropertyvalue("dateOfBirth");
+	    String address=testDataConfig.getPropertyvalue("address");
+	    String city=testDataConfig.getPropertyvalue("city");
+	    String state=testDataConfig.getPropertyvalue("state");
+	    String pincode=testDataConfig.getPropertyvalue("pin");
+	    String mobile=testDataConfig.getPropertyvalue("mobile");
+	    String email=testDataConfig.getPropertyvalue("email");
+	    String password=testDataConfig.getPropertyvalue("password");
+	    
+	    String expectedsuccessmsg= testDataConfig.getPropertyvalue("newCustomerSucessMsg");
+	    
+		
+		String actualsuccessmsg= objCustomer.submitCustomerDetails(customername, dob, address, city, state, pincode, mobile, email, password);
+		
+		if(expectedsuccessmsg.equals(actualsuccessmsg)) {
+			
+			assertTrue(true);
+		}else {
+			
+			assertTrue(false);
+		}
+	   
+	   
+   }
+	
+   @AfterClass		
+	public void closebrowser() {
+		
+		driver.quit();
+	}
 	
 	
 

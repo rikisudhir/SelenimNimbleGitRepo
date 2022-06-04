@@ -8,6 +8,7 @@ import java.awt.AWTException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -96,9 +97,14 @@ public class LoginTest extends BaseClass{
 			
 		}
 	
-				
 		
 		
+	}
+	
+	@AfterClass		
+	public void closebrowser() {
+		
+		driver.quit();
 	}
 	
 	

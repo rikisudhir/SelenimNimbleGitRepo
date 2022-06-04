@@ -36,6 +36,43 @@ public class CustomerPage {
 	@FindBy(linkText ="New Customer")
 	WebElement newCustomeLink;
 	
+	@FindBy(name ="name")
+	WebElement customerName;
+	
+	@FindBy(id ="dob")
+	WebElement dobElement;
+	
+	@FindBy(name ="addr")
+	WebElement addressElement;
+	
+	@FindBy(name ="city")
+	WebElement cityElement;
+	
+	@FindBy(name ="state")
+	WebElement stateElement;
+	
+	@FindBy(name ="pinno")
+	WebElement pinElement;
+	
+	@FindBy(name ="telephoneno")
+	WebElement mobileNumberElement;
+	
+	@FindBy(name ="emailid")
+	WebElement emailElement;
+	
+	@FindBy(name ="password")
+	WebElement passwordElement;
+	
+	@FindBy(xpath ="//input[@value='Submit']")
+	WebElement submitBtn;
+	
+	@FindBy(className ="heading3")
+	WebElement successHeader;
+	
+
+	
+	
+	
 	
 	
 	
@@ -67,6 +104,7 @@ public class CustomerPage {
 		System.out.println(actualheadertext);
 		
 		
+		
 		if(actualurl.equals(expectedurl) && actualheadertext.equals(expectedheader)) {
 			
 			result= true;
@@ -81,6 +119,44 @@ public class CustomerPage {
 		
 	}
 	
-	
+	public String submitCustomerDetails(String customername,String dob, String address, String city, String state,String pin, String mobile, String email, String password) throws InterruptedException {
+		
+		customerName.sendKeys(customername);
+		
+		dobElement.sendKeys(dob);
+		
+		addressElement.sendKeys(address);
+		
+		cityElement.sendKeys(city);
+		
+		cityElement.sendKeys(city);
+		
+		stateElement.sendKeys(state);
+		
+		pinElement.sendKeys(pin);
+		
+		mobileNumberElement.sendKeys(mobile);
+		
+		emailElement.sendKeys(email);
+		
+		passwordElement.sendKeys(password);
+		
+		
+		
+		submitBtn.click();
+		
+		Thread.sleep(4000);
+		
+		
+		String actualsuccessmsg= successHeader.getText();
+		
+		return actualsuccessmsg;
+		
+		
+		
+		
+		
+
+	}
 
 }
