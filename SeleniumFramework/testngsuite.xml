@@ -1,0 +1,8 @@
+<suite name="allSuites">
+  <suite-files>
+    <suite-file path="./logintestng.xml" />
+    <suite-file path="./customertestng.xml" />
+  
+    ...
+  </suite-files>
+</suite>
